@@ -10,7 +10,9 @@ namespace Sirius_WebApplication.Models
     {
         [Key]
         public int Id { get; set; }
+        [Display(Name = "Имя пользователя"), Required]
         public string FName { get; set; }
+        [Display(Name = "Фамилия пользователя"), Required]
         public string LName { get; set; }
 
 

@@ -1,8 +1,17 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Моя домашняя";
 }
+
+@model IEnumerable<Person>
+
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    
 </div>
+<ul>
+    @foreach (var person in Model.OrderBy(i => i.LName).ThenBy(i => i.FName))
+    {
+        @await Html.PartialAsync("PV_personInfo", person)
+    }
+</ul>
